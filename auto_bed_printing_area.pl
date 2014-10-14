@@ -19,7 +19,6 @@ my $y_min; #Y max, overwrites BACK_PROBE_BED_POSITION
 #read X/Y values from inputstream and store the current stream in a temporary file
 #--------------
 open(tmp_file,">".$temp_file) || die ("Cannot create a temporary file") ;
-print "$temp_file\n";
 while (<>) {
         if (/^(G1\sX(\d+(?:\.\d+)?)\sY(\d+(?:\.\d+)?)\s)/) {
                 $x_max = $2 ;
@@ -58,7 +57,7 @@ while (<>) {
 close(tmp_file);
 
 #--------------
-#parametrise the G29 command from the temporary file and stream output gcode
+#parametrises the G29 command from the temporary file and stream output gcode
 #--------------
 open(tmp_file,$temp_file) || die ("Cannot create a temporary file") ;
 while (<tmp_file>) {
@@ -75,7 +74,7 @@ while (<tmp_file>) {
 close(tmp_file);
 
 #--------------
-#end the streams
+#ends the streams
 #--------------
 while (<>) {
                 printf;
